@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <!--header and navigation-->
+    <div class="upper">
+        <div class="heading">
+            <div class="logo">
+                <img src="images/example_logo.png" alt="">
+            </div>
+            <div class="head">
+                <i>Website Example</i>
+            </div>
+        </div>
+    <div class="nav-bar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Products</a>
+                    <ul>
+                        <li><a href="#">Product 1</a></li>
+                        <li><a href="#">Product 2</a></li>
+                        <li><a href="#">Product 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Login</a></li>
+                </ul>
+    </div>
+    </div>
+    <!--Header part end-->
+
+    <div class="container">
+        <div class="slider">
+                <div class="item1 fade">
+                        <img src="images\image1.jpg" alt="image1">
+                        <span class="name">Image 1</span>
+                </div>
+                <div class="item1 fade">
+                        <img src="images\image2.jpg" alt="image1">
+                        <span class="name">Image 2</span>
+                </div>
+                <div class="item1 fade">
+                        <img src="images\image3.jpg" alt="image1">
+                        <span class="name">Image 3</span>
+                </div>
+                <div class="item1 fade">
+                        <img src="images\image4.jpg" alt="image1">
+                        <span class="name">Image 4</span>
+                </div>
+                <div class="item1 fade">
+                        <img src="images\image5.jpg" alt="image1">
+                        <span class="name">Image 5</span>
+                </div>
+                <div class="item1 fade">
+                        <img src="images\image6.jpg" alt="image1">
+                        <span class="name">Image 6</span>
+                </div>
+                <div class="item1 fade">
+                        <img src="images\image7.jpg" alt="image1">
+                        <span class="name">Image 7</span>
+                </div>
+        </div>
+        <div id="dots">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+     </div>
+    </div>
+
+    <script type="text/javascript">
+        var click=1;
+           function currentSlide(m){
+               slideshow(click = m);
+           }
+        slideshow(1);
+        function slideshow(n) {
+          var i;
+            var x = document.getElementsByClassName("item1");
+            if(n>x.length){click = 1};
+            if(n<1){click = x.length;}
+            for(i=0; i<x.length; i++){
+              x[i].style.display="none";
+            }
+            x[click-1].style.display="block";
+        }
+        slide();
+        function slide() {
+          var i;
+          var x = document.getElementsByClassName("item1");
+          var dots = document.getElementsByClassName("dot");
+          for(i=0; i<x.length; i++){
+            x[i].style.display="none";
+          }
+          for (j = 0; j < dots.length; j++) {
+            dots[j].className = dots[j].className.replace(" active", "");
+        }
+          if(click>x.length){click=1}
+          x[click-1].style.display="block";
+          dots[click-1].className += " active";
+          click++;
+          setTimeout(slide,3000);
+        }
+      </script>
+
+
+</body>
+</html>
